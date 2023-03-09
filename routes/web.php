@@ -22,6 +22,26 @@ use App\Http\Controllers\AdminController;
 |
 */
 
+
+// Route untuk role USER
+Route::middleware(['auth', 'role:user'])->group(function () {
+    // Tambahkan route di sini
+});
+
+// Route untuk role ADMIN
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    // Tambahkan route di sini
+});
+
+// Route untuk role PETUGAS
+Route::middleware(['auth', 'role:petugas'])->group(function () {
+    // Tambahkan route di sini
+});
+
+
+
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
