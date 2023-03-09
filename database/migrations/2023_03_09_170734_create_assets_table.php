@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('assets', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_lengkap');
-            $table->enum('role', ['USER', 'ADMIN', 'PETUGAS']);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('no_telp', 13);
-            $table->rememberToken();
+            $table->unsignedBigInteger('user_id');
+            $table->string('image');
+            $table->string('game', 128);
+            $table->string('identifier', 128);
+            $table->text('deskripsi');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('assets');
     }
 };
