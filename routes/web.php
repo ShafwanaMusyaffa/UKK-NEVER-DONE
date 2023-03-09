@@ -36,7 +36,6 @@ require __DIR__.'/auth.php';
 // Route::get('/', function () {
     //     return view('welcome');
     // });
-require __DIR__.'/adminauth.php';
 
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('admin')->group(function () {
